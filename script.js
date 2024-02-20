@@ -135,6 +135,8 @@ container.addEventListener('click', (e) => {
     if (data[index].remaining > 0 || operation === 1) {
       data[index][field] = data[index][field] + operation;
       data[index].remaining = data[index].remaining - operation;
+    } else {
+      alert('No remaining points!');
     }
 
     renderCards();
