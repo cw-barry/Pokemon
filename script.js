@@ -132,7 +132,10 @@ container.addEventListener('click', (e) => {
     else if (e.target.classList.contains('defense')) field = 'defense';
     else field = 'attack';
 
-    if (data[index].remaining > 0 || operation === 1) {
+    if (
+      (data[index].remaining > 0 || operation === -1) &&
+      ((operation === -1 && data[index][field] > 0) || operation === 1)
+    ) {
       data[index][field] = data[index][field] + operation;
       data[index].remaining = data[index].remaining - operation;
     } else {
